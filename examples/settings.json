@@ -1,0 +1,76 @@
+{
+	"settings": {
+
+		"general": {
+			"systemStatus": true,
+			"siteName": "Craft Schematic",
+			"siteUrl": "http://craftschematic.com/",
+			"timezone": "Australia/Melbourne"
+		},
+
+		"routes!merge": [
+			{
+				"urlParts": ["website2\/", ["day", "(?:0?[1-9]|[12][0-9]|3[01])"], "\/", ["*", "[^\\\/]+"]],
+				"template": "index",
+				"locale": "en_au"
+			}
+		],
+
+		"users": {
+			"groups!replace": [
+				{
+					"handle": "customer",
+					"name": "Customer",
+					"permissions!merge": [
+						{
+							"permission": "accesssitewhensystemisoff"
+						},
+						{
+							"permission": "accesscpwhensystemisoff",
+							"enabled": false
+						},
+						{
+							"permission": "editlocale",
+							"locale": "de"
+						},
+						{
+							"permission": "publishentries",
+							"entryType": "__homepage__"
+						},
+						{
+							"permission": "publishentries",
+							"entryType": "news"
+						}
+					]
+				},
+				{
+					"handle!remove": "test"
+				}
+			],
+			"fields!merge": [
+				{
+					"field": "body",
+					"required": true
+				}
+			],
+			"settings": {
+				"requireEmailVerification": true,
+				"allowPublicRegistration": true,
+				"defaultGroup": "customer"
+			}
+		},
+
+		"email": {
+			"systemEmailAddress": "info@website.com",
+			"senderName": "Craft Schematic",
+			"htmlEmailTemplate": "email",
+			"protocol": "smtp",
+			"hostName": "smtp.sendgrid.net",
+			"port": 587,
+			"smtpAuthentication": true,
+			"smtpKeepAlive": false,
+			"smtpSecureTransportType": "tls",
+			"timeout": 30
+		}
+	}
+}

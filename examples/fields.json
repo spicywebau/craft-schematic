@@ -1,0 +1,76 @@
+{
+	"fields": [
+		{
+			"group": "Content",
+			"handle": "body",
+			"name": "Body",
+			"instructions": "The body content",
+			"type": "Matrix",
+			"settings": {
+				"maxBlocks": 10,
+				"blockTypes": [
+					{
+						"handle": "text",
+						"name": "Text",
+						"fields": [
+							{
+								"handle": "text",
+								"name": "Text",
+								"instructions": "",
+								"required": true,
+								"type": "RichText",
+								"settings": {
+
+								}
+							}
+						]
+					}
+				]
+			}
+		},
+		{
+			"group": "Content",
+			"handle": "text",
+			"name": "Text",
+			"instructions": "",
+			"type": "PlainText",
+			"settings": {
+
+			}
+		},
+		{
+			"group": "Another Group",
+			"handle": "neo",
+			"name": "Neo",
+			"instructions": "Neo test",
+			"type": "Neo",
+			"settings": {
+				"maxBlocks": 10,
+				"blockTypes": [
+					{
+						"group": "Text",
+						"handle": "text",
+						"name": "Text",
+						"maxBlocks": 0,
+						"childBlocks": [
+							"handle"
+						],
+						"maxChildBlocks": 3,
+						"topLevel": true,
+						"fieldLayout": [
+							{
+								"tab": "Content",
+								"fields": [
+									{
+										"field": "text",
+										"required": true
+									}
+								]
+							}
+						]
+					}
+				]
+			}
+		}
+	]
+}
